@@ -111,14 +111,8 @@ public class GameManager : MonoBehaviour
 
         SetGameState(GameState.Playing);
 
-        Debug.Log("Game Started");
     }
 
-    /// <summary>
-    /// Called each time a turn ends. 
-    /// 'wasCorrect' indicates if the player's answer was correct.
-    /// 'answer' is the chosen answer for reference/feedback.
-    /// </summary>
     public void EndTurn(bool wasCorrect, int answer)
     {
         currentAnswer = answer;
@@ -135,18 +129,15 @@ public class GameManager : MonoBehaviour
             friendText.text = "Буруу!";
         }
 
-        // Move to the next turn
         currentTurn++;
         
 
-        // Check if we've surpassed the maxTurn
         if (currentTurn > gameData.maxTurn)
         {
              EndGame();
         }
         else
         {
-            // We still have turns left in the current game
             WaitForNextRound(wasCorrect);
         }
     }
@@ -195,9 +186,7 @@ public class GameManager : MonoBehaviour
             ExtendTurn(mistakes, text);
         }
 
-            
-
-        Debug.Log("Game Over!");
+          
     }
 
     private void ExtendTurn(int mistakes, string text)

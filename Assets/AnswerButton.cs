@@ -26,22 +26,11 @@ public class AnswerButton : MonoBehaviour
     {
         if (currentValue == correctAnswer)
         {
-            Debug.Log("Correct! The answer is: " + correctAnswer);
-
-            // Make the button background green
-            if (buttonBackground != null)
-                buttonBackground.color = Color.green;
-
-            // Play a congratulations effect (particle system)
-            if (congratulationsEffect != null)
-                congratulationsEffect.Play();
 
             gameManager.EndTurn(true, currentValue);
         }
         else
         {
-            Debug.Log("Incorrect. You chose: " + currentValue + ", correct is: " + correctAnswer);
-            // You could change color to red or handle other UI feedback here
             gameManager.EndTurn(false, currentValue);
         }
     }
